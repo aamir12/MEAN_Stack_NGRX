@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -13,7 +13,7 @@ export class InputDialogComponent implements OnInit,AfterViewInit {
 
   public amount: string | number = '';
 
-  public bondAmount: FormControl = new FormControl('', [Validators.required, Validators.min(1)]);
+  public bondAmount: UntypedFormControl = new UntypedFormControl('', [Validators.required, Validators.min(1)]);
 
   public onConfirm: boolean = false;
   @ViewChild('input') input!:ElementRef;

@@ -14,25 +14,22 @@ import { environment } from '../environments/environment';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    //MessageSnackbarComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    //MessageSnackbarComponent
-  ]
+    declarations: [
+        AppComponent,
+        //MessageSnackbarComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        SharedModule,
+        StoreModule.forRoot({}, {}),
+        EffectsModule.forRoot([]),
+        StoreRouterConnectingModule.forRoot(),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
