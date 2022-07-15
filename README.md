@@ -37,19 +37,32 @@ npm i ngx-mask
 npm i jwt-decode
 
 ng add @ngrx/store@latest
+
 ng add @ngrx/effects@latest
+
 ng add @ngrx/router-store@latest
+
 ng add @ngrx/entity@latest
+
 ng add @ngrx/store-devtools@latest
+
 npm install @ngrx/schematics --save-dev
+
 ng config cli.defaultCollection @ngrx/schematics
 
+## or by using npm for ngrx effects
+
 npm install @ngrx/store --save
+
 npm install @ngrx/effects --save
+
 npm install @ngrx/router-store --save
+
 npm install @ngrx/entity --save
+
 npm install @ngrx/store-devtools --save
 
+## MapRequest
 mapquest@yopmail.com
 Mapquest@v4
 
