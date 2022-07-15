@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path:'search',
+    path:'bootcamps',
     loadChildren: () => import('./modules/web/search-boot-camp/search-boot-camp.module').then((m) => m.SearchBootCampModule),
   },
   {
