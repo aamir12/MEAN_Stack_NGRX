@@ -25,3 +25,27 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Package and app installation
+ng new bootcampNgrx --style=scss --routing
+
+ng add @angular/material
+
+ng-bootstrap
+ng add @ng-bootstrap/ng-bootstrap
+npm i ngx-mask
+npm i jwt-decode
+
+ng add @ngrx/store@latest
+ng add @ngrx/effects@latest
+ng add @ngrx/router-store@latest
+ng add @ngrx/entity@latest
+ng add @ngrx/store-devtools@latest
+npm install @ngrx/schematics --save-dev
+ng config cli.defaultCollection @ngrx/schematics
+
+npm install @ngrx/store --save
+npm install @ngrx/effects --save
+npm install @ngrx/router-store --save
+npm install @ngrx/entity --save
+npm install @ngrx/store-devtools --save

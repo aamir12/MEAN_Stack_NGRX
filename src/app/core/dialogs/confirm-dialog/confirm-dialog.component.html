@@ -1,0 +1,10 @@
+<mat-dialog-content>
+    <p class="message">{{_payload?.message}}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div style="width: 100%;" class="btns-group">
+        <button mat-button (click)="onNoClick()" class="btn btn-outline-primary" >No</button>
+        <button mat-button (click)="onYesClick()" class="btn btn-primary">Yes</button>
+       
+    </div>
+</mat-dialog-actions>

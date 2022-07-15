@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <div class="amount-modal-body">
+        <p class="message">{{_payload?.message}}</p>
+        <p class="message">{{_payload?.subMessage}}</p>
+        <p>{{_payload?.formControlLabel}}</p>
+
+        <div class="from-group">
+            <input #input [ngClass]="{'is-invalid': bondAmount.invalid && (bondAmount.touched || onConfirm)}"
+                [(ngModel)]="amount" mask="separator.2" thousandSeparator="," class=" form-control" id="bondAmount"
+                type="text" [formControl]="bondAmount">
+        </div>
+
+        <div class="error" *ngIf="bondAmount.errors?.required && (bondAmount.touched || onConfirm)">Policy amount is
+            required</div>
+        <div class="error" *ngIf="bondAmount.errors?.min && (bondAmount.touched || onConfirm)">Please enter valid policy
+            amount</div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="amount-modal-footer btns-group">
+        <button mat-button (click)="onNoClick()" class="btn btn-outline-primary">Cancel</button>
+        <button mat-button (click)="onYesClick()" class="btn btn-primary">Confirm</button>
+    </div>
+</mat-dialog-actions>

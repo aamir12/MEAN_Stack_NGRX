@@ -1,0 +1,7 @@
+<mat-list class="dialog-filter">
+    <div class="close-dialog" mat-dialog-close	><i class="fa fa-times"></i>close</div>
+    <div *ngFor="let item of options">
+        <mat-list-item *ngIf="!item.active" (click)="onItemClick(item)">{{item.name}} ({{item.count}})</mat-list-item>
+        <mat-divider *ngIf="!item.active"></mat-divider>
+    </div>
+</mat-list>
