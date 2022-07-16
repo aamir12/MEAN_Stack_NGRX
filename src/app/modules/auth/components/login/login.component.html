@@ -14,26 +14,37 @@
                             Log in to list your bootcamp or rate, review and favorite
                             bootcamps
                         </p>
-                        <form>
+                        <form [formGroup]="loginForm" (submit)="onLogin()" >
                             <div class="form-group mb-3">
                                 <label for="email">Email Address</label>
                                 <input
                                     type="email"
-                                    name="email"
                                     class="form-control rounded-0"
                                     placeholder="Enter email"
-                                    required
+                                    formControlName="email"
                                 />
+
+                                <div class="invalid-inline" *ngIf="email.errors?.['required'] && (email.touched || isSubmit)">
+                                    Email is required
+                                </div>
+
+                                <div class="invalid-inline" *ngIf="email.errors?.['pattern'] && (email.touched || isSubmit)">
+                                   Invalid email id
+                                </div>
+                                
                             </div>
                             <div class="form-group mb-4">
                                 <label for="password">Password</label>
                                 <input
                                     type="password"
-                                    name="password"
                                     class="form-control"
                                     placeholder="Enter password"
-                                    required
+                                    formControlName="password"
                                 />
+                               
+                                <div class="invalid-inline" *ngIf="password.invalid && (password.touched || isSubmit)">
+                                    Password is required
+                                </div>
                             </div>
                             <div class="d-grid">
                                 <input

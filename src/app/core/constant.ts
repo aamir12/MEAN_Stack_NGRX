@@ -14,7 +14,7 @@
  *  API endpoints
  */
 export enum ApiEndpoints {
-    LOGIN = '/login',
+    LOGIN = 'auth/login',
     SOCIAL_LOGIN = '/public/social-login',
     LOGGEDIN_USER_DETAILS = '/auth/user/loggedin-user-details',
     COVERAGE_TYPE_LIST = '/public/coverage-type/list',

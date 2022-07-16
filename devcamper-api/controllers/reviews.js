@@ -12,7 +12,8 @@ exports.getReviews = asyncHandler(async (req, res, next) => {
     const reviews = await Review.find({ bootcamp: req.params.bootcampId });
 
     return res.status(200).json({
-      success: true,
+      status: true,
+      statusCode:200,
       count: reviews.length,
       data: reviews
     });
@@ -37,7 +38,8 @@ exports.getReview = asyncHandler(async (req, res, next) => {
   }
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: review
   });
 });
@@ -63,7 +65,8 @@ exports.addReview = asyncHandler(async (req, res, next) => {
   const review = await Review.create(req.body);
 
   res.status(201).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: review
   });
 });
@@ -91,7 +94,8 @@ exports.updateReview = asyncHandler(async (req, res, next) => {
   });
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: review
   });
 });
@@ -116,7 +120,8 @@ exports.deleteReview = asyncHandler(async (req, res, next) => {
   await review.remove();
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: {}
   });
 });

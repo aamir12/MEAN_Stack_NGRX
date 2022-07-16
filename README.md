@@ -66,6 +66,6 @@ npm install @ngrx/store-devtools --save
 mapquest@yopmail.com
 Mapquest@v4
 
-SET environment variables
+## SET environment variables of POSTMAN
 URL
 TOKEN

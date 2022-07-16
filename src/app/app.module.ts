@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './core/modules/shared/shared.module';
+import { CookieModule } from '@ngx-toolkit/cookie';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SharedModule } from './core/modules/shared/shared.module';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { environment } from '../environments/environment';
         AppRoutingModule,
         BrowserAnimationsModule,
         SharedModule,
+        CookieModule.forRoot(),
         StoreModule.forRoot({}, {}),
         EffectsModule.forRoot([]),
         StoreRouterConnectingModule.forRoot(),

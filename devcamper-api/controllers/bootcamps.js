@@ -23,7 +23,7 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
     );
   }
 
-  res.status(200).json({ success: true, data: bootcamp });
+  res.status(200).json({ status: true,statusCode:200, data: bootcamp });
 });
 
 // @desc      Create new bootcamp
@@ -49,7 +49,8 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
   const bootcamp = await Bootcamp.create(req.body);
 
   res.status(201).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: bootcamp
   });
 });
@@ -81,7 +82,10 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
     runValidators: true
   });
 
-  res.status(200).json({ success: true, data: bootcamp });
+  res.status(200).json({ 
+    status: true,
+    statusCode:200,
+    data: bootcamp });
 });
 
 // @desc      Delete bootcamp
@@ -108,7 +112,10 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
 
   bootcamp.remove();
 
-  res.status(200).json({ success: true, data: {} });
+  res.status(200).json({ 
+    status: true,
+    statusCode:200,
+    data: {} });
 });
 
 // @desc      Get bootcamps within a radius
@@ -132,7 +139,8 @@ exports.getBootcampsInRadius = asyncHandler(async (req, res, next) => {
   });
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     count: bootcamps.length,
     data: bootcamps
   });
@@ -193,7 +201,8 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
     await Bootcamp.findByIdAndUpdate(req.params.id, { photo: file.name });
 
     res.status(200).json({
-      success: true,
+      status: true,
+      statusCode:200,
       data: file.name
     });
   });

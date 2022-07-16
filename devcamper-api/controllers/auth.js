@@ -26,7 +26,6 @@ exports.register = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
-
   // Validate emil & password
   if (!email || !password) {
     return next(new ErrorResponse('Please provide an email and password', 400));
@@ -59,7 +58,8 @@ exports.logout = asyncHandler(async (req, res, next) => {
   });
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: {}
   });
 });
@@ -71,7 +71,8 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: user
   });
 });
@@ -91,7 +92,8 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
   });
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: user
   });
 });
@@ -142,7 +144,11 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
       message
     });
 
-    res.status(200).json({ success: true, data: 'Email sent' });
+    res.status(200).json({ 
+      status: true,
+      statusCode:200,
+      data: 'Email sent'
+    });
   } catch (err) {
     console.log(err);
     user.resetPasswordToken = undefined;
@@ -154,7 +160,8 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   }
 
   res.status(200).json({
-    success: true,
+    status: true,
+    statusCode:200,
     data: user
   });
 });
@@ -191,7 +198,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 const sendTokenResponse = (user, statusCode, res) => {
   // Create token
   const token = user.getSignedJwtToken();
-
+  
   const options = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
@@ -207,7 +214,14 @@ const sendTokenResponse = (user, statusCode, res) => {
     .status(statusCode)
     .cookie('token', token, options)
     .json({
-      success: true,
-      token
+      status: true,
+      statusCode:statusCode,
+      data:{
+        id:user._id,
+        email:user.email,
+        name:user.name,
+        token
+      }
+      
     });
 };
